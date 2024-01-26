@@ -8,7 +8,7 @@ export default function GeneralLayout({ children }: { children: ReactNode }) {
       <div className="w-full bg-primary-foreground">
         <div className="container flex h-24 items-center justify-between">
           <h1 className="text-2xl font-bold leading-6">
-            <span className="text-orange-500">Next</span>Chat
+            NextApp
           </h1>
           <nav className="flex items-center gap-4">
             <ul className="flex gap-8">
