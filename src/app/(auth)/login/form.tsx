@@ -15,10 +15,24 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { loginSchema } from "@/lib/validation/loginSchema";
+import { useRouter } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
 
 type LoginSchema = z.infer<typeof loginSchema>;
 
+const loginSubmit = async (values: LoginSchema) => {
+  const res = await fetch("/api/auth/login", {
+    method: "POST",
+    body: JSON.stringify(values),
+  });
+
+  return res.json();
+};
+
 export default function LoginForm() {
+  const { toast } = useToast();
+  const router = useRouter();
+
   const form = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
@@ -27,8 +41,21 @@ export default function LoginForm() {
     },
   });
 
-  const onSubmit = (values: LoginSchema) => {
-    console.log(values);
+  const onSubmit = async (values: LoginSchema) => {
+    const response = await loginSubmit(values);
+    if (!response.success) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: response.message,
+      });
+    }
+    toast({
+      variant: "default",
+      title: "Success",
+      description: response.message,
+    });
+    router.push("/");
   };
 
   return (

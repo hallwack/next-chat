@@ -15,22 +15,50 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { registerSchema } from "@/lib/validation/registerSchema";
+import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
 
 type RegisterSchema = z.infer<typeof registerSchema>;
 
+const registerSubmit = async (values: RegisterSchema) => {
+  const res = await fetch("/api/auth/register", {
+    method: "POST",
+    body: JSON.stringify(values),
+  });
+
+  return res.json();
+};
+
 export default function RegisterForm() {
+  const { toast } = useToast();
+  const router = useRouter();
+
   const form = useForm<RegisterSchema>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
       name: "",
+      username: "",
       email: "",
       password: "",
       confirmPassword: "",
     },
   });
 
-  const onSubmit = (values: RegisterSchema) => {
-    console.log(values);
+  const onSubmit = async (values: RegisterSchema) => {
+    const response = await registerSubmit(values);
+    if (!response.success) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: response.message,
+      });
+    }
+    toast({
+      variant: "default",
+      title: "Success",
+      description: response.message,
+    });
+    router.push("/login");
   };
 
   return (
@@ -42,6 +70,19 @@ export default function RegisterForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Full Name</FormLabel>
+              <FormControl>
+                <Input type="text" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
               <FormControl>
                 <Input type="text" {...field} />
               </FormControl>
