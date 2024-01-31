@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import { ThemeProvider } from "./ThemeProvider";
 import { Toaster } from "../ui/toaster";
+import { ThemeProvider } from "./theme-provider";
 
 export default function LayoutProvider({ children }: { children: ReactNode }) {
   return (
