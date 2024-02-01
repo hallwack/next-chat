@@ -11,8 +11,7 @@ export default function LoginModal() {
   return (
     <>
       <Dialog
-        defaultOpen
-        /* open={pathname.includes("/login")} */
+        open={pathname.includes("/login")}
         onOpenChange={() => router.back()}
       >
         <DialogContent className="max-w-80">

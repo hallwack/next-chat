@@ -56,6 +56,7 @@ export default function LoginForm() {
       description: response.message,
     });
     router.push("/");
+    router.refresh()
   };
 
   return (
@@ -93,9 +94,6 @@ export default function LoginForm() {
           </Button>
           <Button type="button" variant="outline" className="w-full" asChild>
             <Link href="/register">Register</Link>
-          </Button>
-          <Button variant="link" asChild className="w-full">
-            <Link href="/">Back to Home</Link>
           </Button>
         </div>
       </form>
