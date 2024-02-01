@@ -1,4 +1,10 @@
-import { pgTable, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import {
+  integer,
+  pgTable,
+  text,
+  timestamp,
+  varchar,
+} from "drizzle-orm/pg-core";
 
 export const userTable = pgTable("user", {
   id: varchar("id", {
@@ -9,6 +15,7 @@ export const userTable = pgTable("user", {
   email: text("email").unique(),
   password: text("password"),
   createdAt: timestamp("created_at").defaultNow(),
+  googleId: integer("google_id").unique(),
 });
 
 export const sessionTable = pgTable("session", {
