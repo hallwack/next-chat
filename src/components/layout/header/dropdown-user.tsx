@@ -1,4 +1,5 @@
-import { User } from "lucia";
+import LogoutButton from "@/components/shared/logout-button";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,9 +7,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-import LogoutButton from "./shared/logout-button";
-import { Button } from "./ui/button";
+} from "@/components/ui/dropdown-menu";
+import { User } from "lucia";
 
 export default function DropdownUser({ user }: { user: User }) {
   return (

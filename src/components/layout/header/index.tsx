@@ -1,10 +1,11 @@
-import DropdownUser from "@/components/dropdown-user";
 import { ModeToggle } from "@/components/mode-toggle";
 import { validateRequest } from "@/lib/auth/validateRequest";
 import Link from "next/link";
+import DropdownUser from "./dropdown-user";
 
 export default async function Header() {
   const { session, user } = await validateRequest();
+
   return (
     <div className="w-full bg-primary-foreground">
       <div className="container flex h-24 items-center justify-between">
