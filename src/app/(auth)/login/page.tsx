@@ -1,9 +1,7 @@
+import LoginForm from "@/components/shared/login-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import LoginForm from "./form";
 
-type Props = {};
-
-export default async function Page({}: Props) {
+export default async function LoginPage() {
   return (
     <Card className="w-80">
       <CardHeader>

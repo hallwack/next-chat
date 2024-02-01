@@ -27,9 +27,7 @@ export default function RootLayout({
           plusJakartaSans.variable,
         )}
       >
-        <LayoutProvider>
-          {children}
-        </LayoutProvider>
+        <LayoutProvider>{children}</LayoutProvider>
       </body>
     </html>
   );

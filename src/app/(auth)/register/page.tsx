@@ -1,5 +1,5 @@
+import RegisterForm from "@/components/shared/register-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import RegisterForm from "./form";
 
 type Props = {};
 
