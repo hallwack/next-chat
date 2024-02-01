@@ -1,5 +1,7 @@
 import LoginForm from "@/components/shared/login-form";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
 
 export default async function LoginPage() {
   return (
@@ -7,8 +9,11 @@ export default async function LoginPage() {
       <CardHeader>
         <CardTitle>Login</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex flex-col justify-center gap-4">
         <LoginForm />
+        <Button variant="link" asChild className="w-full">
+          <Link href="/">Back to Home</Link>
+        </Button>
       </CardContent>
     </Card>
   );
