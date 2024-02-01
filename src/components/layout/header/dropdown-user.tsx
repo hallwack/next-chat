@@ -14,7 +14,7 @@ export default function DropdownUser({ user }: { user: User }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size="sm">{user.username}</Button>
+        <Button size="sm">{user.username ?? user.name}</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="mt-1">
         <DropdownMenuLabel>{user.email}</DropdownMenuLabel>
