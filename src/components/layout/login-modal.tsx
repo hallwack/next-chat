@@ -12,7 +12,7 @@ export default function LoginModal() {
     <>
       <Dialog
         open={pathname.includes("/login")}
-        onOpenChange={() => router.back()}
+        onOpenChange={() => router.push("/")}
       >
         <DialogContent className="max-w-80">
           <DialogHeader>
