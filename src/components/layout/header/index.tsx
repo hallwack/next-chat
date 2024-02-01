@@ -9,8 +9,8 @@ export default async function Header() {
     <div className="w-full bg-primary-foreground">
       <div className="container flex h-24 items-center justify-between">
         <h1 className="text-2xl font-bold leading-6">NextApp</h1>
-        <nav className="flex items-center gap-16">
-          <ul className="flex gap-8">
+        <nav className="flex gap-16">
+          <ul className="flex items-center gap-8">
             <li>
               <Link href="/">Home</Link>
             </li>
