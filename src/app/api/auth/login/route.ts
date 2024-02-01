@@ -16,7 +16,7 @@ export async function POST(req: Request) {
       .where(eq(userTable.email, email));
 
     const validPassword = await new Argon2id().verify(
-      user[0].password,
+      user[0].password!,
       password,
     );
 
