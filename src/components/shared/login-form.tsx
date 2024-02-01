@@ -95,7 +95,10 @@ export default function LoginForm() {
           </Button>
           <Link
             href="/login/google"
-            className={cn(buttonVariants({ variant: "outline" }), "w-full !space-x-3")}
+            className={cn(
+              buttonVariants({ variant: "outline" }),
+              "w-full !space-x-3",
+            )}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
