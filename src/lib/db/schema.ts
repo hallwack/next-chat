@@ -15,7 +15,7 @@ export const userTable = pgTable("user", {
   email: text("email").unique(),
   password: text("password"),
   createdAt: timestamp("created_at").defaultNow(),
-  googleId: integer("google_id").unique(),
+  googleId: text("google_id").unique(),
 });
 
 export const sessionTable = pgTable("session", {
