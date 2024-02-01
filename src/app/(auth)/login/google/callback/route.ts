@@ -1,6 +1,7 @@
 import { google, lucia } from "@/lib/auth/lucia";
 import db from "@/lib/db";
 import { userTable } from "@/lib/db/schema";
+import { getErrorMessage } from "@/lib/utils";
 import { GoogleTokens, OAuth2RequestError } from "arctic";
 import { generateId } from "lucia";
 import { cookies } from "next/headers";
@@ -78,11 +79,11 @@ export async function GET(req: Request): Promise<Response> {
   } catch (e) {
     if (e instanceof OAuth2RequestError) {
       // invalid code
-      return new Response(null, {
+      return new Response(getErrorMessage(e), {
         status: 400,
       });
     }
-    return new Response(null, {
+    return new Response(getErrorMessage(e), {
       status: 500,
     });
   }
